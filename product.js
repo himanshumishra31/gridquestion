@@ -27,7 +27,23 @@ Product.prototype.colorCheckboxes = function() {
     _this.checkedColorBoxes = [];
     _this.getCheckedBoxes(_this.checkedColorBoxes, _this.colorSelectorCheckboxes, 'color');
     _this.showSelectedCheckboxes(_this.checkedColorBoxes, 'color', this);
+    console.log(_this.presentImages);
+
     _this.reinitializePresentImages(_this.colorSelectorCheckboxes);
+    console.log(_this.presentImages);
+
+  };
+};
+
+Product.prototype.brandCheckboxes = function() {
+  var _this = this;
+  return function () {
+    _this.checkedBrandBoxes = [];
+    _this.getCheckedBoxes(_this.checkedBrandBoxes, _this.brandSelectorCheckboxes, 'brand');
+    _this.showSelectedCheckboxes(_this.checkedBrandBoxes, 'brand', this);
+    console.log(_this.presentImages);
+    _this.reinitializePresentImages(_this.brandSelectorCheckboxes);
+    console.log(_this.presentImages);
   };
 };
 
@@ -61,8 +77,12 @@ Product.prototype.showSelectedCheckboxes = function(checkedCheckBoxes, selectorN
     if(checkedCheckBoxes.length) {
       $(this.productsImages[key]).hide();
       for(var value of checkedCheckBoxes) {
-        if(value == $(this.productsImages[key]).data('details')[selectorName] && (this.presentImages.indexOf(selectedCheckbox) > -1 || this.presentImages.indexOf(this.productsImages[key]) > -1)) {
+        if(value == $(this.productsImages[key]).data('details')[selectorName] && ( (this.presentImages.indexOf(selectedCheckbox) > -1 && $(selectedCheckbox).data(selectorName) == value) || this.presentImages.indexOf(this.productsImages[key]) > -1)) {
           $(this.productsImages[key]).show();
+          console.log(this.presentImages.indexOf(selectedCheckbox) > -1);
+          console.log($(selectedCheckbox).data(selectorName) == value);
+          console.log(this.presentImages.indexOf(this.productsImages[key]) > -1);
+          console.log(this.productsImages[key]);
         }
       }
     } else {
@@ -71,15 +91,6 @@ Product.prototype.showSelectedCheckboxes = function(checkedCheckBoxes, selectorN
   }
 };
 
-Product.prototype.brandCheckboxes = function() {
-  var _this = this;
-  return function () {
-    _this.checkedBrandBoxes = [];
-    _this.getCheckedBoxes(_this.checkedBrandBoxes, _this.brandSelectorCheckboxes, 'brand');
-    _this.showSelectedCheckboxes(_this.checkedBrandBoxes, 'brand', this);
-    _this.reinitializePresentImages(_this.brandSelectorCheckboxes);
-  };
-};
 
 Product.prototype.bindCheckboxes = function() {
   this.colorSelectorCheckboxes.click(this.colorCheckboxes());
