@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="product.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+</head>
+</head>
+<body>
+  <div id="fullpage">
+    <div id="shopImageDiv">
+      <img src="download.jpeg" id="shopImage">
+    </div>
+    <hr>
+    <div id="products">
+      <div id="selectors">
+        <fieldset>
+        <legend align="center">Colors</legend>
+          <div id="colorSelectors">
+            <input type="checkbox" name="colors" id="yellow" data-color="Yellow">
+            <label for="yellow">Yellow</label>
+            <input type="checkbox" name="colors" id="red" data-color="Red">
+            <label for="red">Red</label>
+            <input type="checkbox" name="colors" id="green" data-color="Green">
+            <label for="green">Green</label>
+            <input type="checkbox" name="colors" id="blue" data-color="Blue">
+            <label for="blue">Blue</label>
+          </div>
+        </fieldset>
+        <br><br>
+        <fieldset>
+          <legend align="center">Brand</legend>
+          <div id="brandSelectors">
+            <input type="checkbox" name="brand" id="brandA" data-brand="BRAND A">
+            <label for="brandA">A</label>
+            <input type="checkbox" name="brand" id="brandB" data-brand="BRAND B">
+            <label for="brandB">B</label>
+            <input type="checkbox" name="brand" id="brandC" data-brand="BRAND C">
+            <label for="brandC">C</label>
+            <input type="checkbox" name="brand" id="brandD" data-brand="BRAND D">
+            <label for="brandD">D</label>
+          </div>
+        </fieldset>
+        <br><br>
+        <fieldset>
+          <legend align="center">Availability</legend>
+          <div id="availableSelectors">
+            <input type="checkbox" name="available" id="All" data-filter="all">
+            <label for="All">ALL</label>
+            <input type="checkbox" name="available" id="available" data-filter="0">
+            <label for="available">Available</label>
+          </div>
+        </fieldset>
+      </div>
+      <div id="productsView">
+      </div>
+    </div>
+    <hr>
+  </div>
+</body>
+</html>
